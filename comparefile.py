@@ -13,7 +13,7 @@ dfFile1 = pd.read_csv(CompFile1, sep='|')
 dfFile2 = pd.read_csv(CompFile2, sep='|')
 
 listheader1 = list(dfFile1.columns.values)
-listheader2 = list(dfFile1.columns.values)
+listheader2 = list(dfFile2.columns.values)
 listheader = []
 if listheader2 == listheader1:
     for val in listheader1:
