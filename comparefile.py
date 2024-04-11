@@ -1,12 +1,12 @@
 import pandas as pd
 
-
+# for common records
 def common_records(df1, df2, path, keys):
     #common recrods
     common_df = pd.merge(df1, df2, how='inner', on=keys)
     common_df.to_csv(path + '/' + 'common_elements.csv', index=False)
 
-
+#for difference records including unqiue records
 def difference_records(df1, df2, path, keys, header):
     merge_df = pd.merge(df1, df2, how='outer', on=keys, indicator=True)
     #records only in left file
@@ -32,13 +32,13 @@ def difference_records(df1, df2, path, keys, header):
 
 
 #Enter file path
-path = 'G://Python/files/'
+path = ''
 #File to compare
 CompLeft = f'{path}/employees1.csv'
 #File to compare with
 CompRight = f'{path}/employees.csv'
 #key columns to compare using
-KeyColumn = ['emp_no']
+KeyColumn = ['emp_no', 'emp_id']
 CommonCol = ','.join(KeyColumn)
 # Read the two files into pandas DataFrames with file seperator as '|
 dfLeft = pd.read_csv(CompLeft, sep='|')
